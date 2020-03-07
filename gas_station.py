@@ -18,6 +18,9 @@ class GasStation:
         if erogated >= 0:
             self.tank_qtys[fuel_type] -= amount
             return self.get_payed(fuel_type, amount)
+        else:
+            print(f'{amount - tank} can not be erogated')
+            return self.get_payed(fuel_type, tank)
 
     def pay(self, fuel_type, amount):
         pass
@@ -56,4 +59,5 @@ if __name__ == '__main__':
     diesel = Diesel()
     petrol = Petrol()
     gas_station = GasStation('Q8', [diesel, petrol])
-    # GasStation.erogate(GasStation.diesel, 30)
+    gas_station.erogate(gas_station.diesel, 30)
+    print(gas_station.tank_qtys)
